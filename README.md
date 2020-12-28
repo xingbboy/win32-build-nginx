@@ -19,13 +19,15 @@
 	运行:nmake -f ms\ntdll.mak
 	拷贝libeay32.dll,libeay32.lib,ssleay32.lib到nginx的libs(没有需要创建目录)里
 
-## 编译pcre
-	第一步：把config.h.generic重命名成config.h
-	第二步：把pcre.h.generic重命名成pcre.h
-	第三步：重命名pcre_chartables.c.dist为pcre_chartables.c
-	拷贝pcre.lib到nginx的libs(没有需要创建目录)里
-	
-
+## 编译pcre(已做,直接打开build\pcre.sln编译)
+	把config.h.generic重命名成config.h
+	把pcre.h.generic重命名成pcre.h
+	重命名pcre_chartables.c.dist为pcre_chartables.c
+	用vs创建个静态库
+	将config.h,pcre_internal.h,pcre_chartables.c,pcre_compile.c,
+	pcre_exec.c,pcre_fullinfo.c,pcre_globals.c,pcre_newline.c
+	pcre_study.c,pcre_tables.c,pcre_ucd.c文件加入工程
+	编译,然后拷贝pcre.lib到nginx的libs(没有需要创建目录)里
 
 ## 编译nginx
 ### 步骤1(已生成 可略过): 主要为了生成ngx_auto_config.h文件
